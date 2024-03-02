@@ -2,7 +2,8 @@
 const express = require("express")
 const cors = require("cors");
 const compression = require("compression");
-const {indexRouter} = require("./router/index-router.js");
+// const {indexRouter} = require("./router/index-router.js");
+const {todoRouter} = require("./router/todo-router.js");
 // const {a, b } = require("./dummy")
 // import {a, b} from "./dummy.js";
 const app = express();
@@ -31,7 +32,8 @@ app.use(compression());
 //   res.send(name);
 //   res.end();
 // });
-indexRouter(app);
+// indexRouter(app);
+todoRouter(app);
 
 app.listen(3000, () => {
   console.log('listen on port 3000');
