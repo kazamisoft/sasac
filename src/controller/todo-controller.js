@@ -110,5 +110,45 @@ exports.createTodo = async function(req, res) {
   } catch (err) {
     console.log(`createTodo:`, err)
   }
+}
 
+exports.updateTodo = async function(req, res) {
+  try {
+    console.log(`HTTP PATCH /todo`);
+
+    const {todoIdx, userIdx, contents, type} = req.body;
+    if (!todoIdx || !userIdx) {
+      return res.send({
+        isSuccess: false,
+        code: 400,
+        message: "입력값이 누락되었습니다."
+      });
+    }
+
+    // 내용체크
+    if (!contents) {
+      contents = null;
+    }
+    if (!type) {
+      type = null;
+    }
+
+    const result = todoDao.insertTodo(userIdx, contents, type);
+    if (result === false) {
+      // res.send("NOTOK");
+      return res.send({
+        isSuccess: false,
+        code: 403,
+        message: "요청에 실패했습니다."
+      });
+    }
+    // 성공하면,
+    return res.send({
+      isSuccess: true,
+      code: 200,
+      message: "성공"
+    })
+  } catch (err) {
+    console.log(`createTodo:`, err)
+  }
 }
