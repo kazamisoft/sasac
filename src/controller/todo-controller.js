@@ -1,6 +1,6 @@
 const todoDao = require("../dao/todo-dao.js");
 
-exports.getUsers = async function(req, res) {
+exports.getUsers = async function (req, res) {
   try {
     console.log(`HTTP GET /Users`);
 
@@ -11,26 +11,25 @@ exports.getUsers = async function(req, res) {
     console.log(`query error`, err);
   }
   res.end();
-}
+};
 
-exports.getTodos = async function(req, res) {
+exports.getTodos = async function (req, res) {
   try {
     console.log(`HTTP GET /user/:userIdx/todos`);
 
-    const {userIdx} = req.params;
+    const { userIdx } = req.params;
     // const [userTodos] = await todoDao.getUserTodos(userIdx);
     const [userTodos] = await todoDao.getTodoByType(userIdx, "do");
     res.send(userTodos);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`query error`, err);
   }
   res.end();
-}
+};
 
-exports.readTodo = async function(req, res) {
+exports.readTodo = async function (req, res) {
   try {
-    const {userIdx} = req.params;
+    const { userIdx } = req.verifiedToken; //req.params;
 
     const todos = {};
     const types = ["do", "decide", "delegate", "delete"];
@@ -38,11 +37,11 @@ exports.readTodo = async function(req, res) {
     for (let type of types) {
       let selectTodoByTypeRows = await todoDao.getTodoByType(userIdx, type);
       if (!selectTodoByTypeRows) {
-          return res.send({
-            isSuccess: false,
-            code: 400,
-            message: "컨텐츠의 글자가 20이 넘었습니다."
-          });
+        return res.send({
+          isSuccess: false,
+          code: 400,
+          message: "컨텐츠의 글자가 20이 넘었습니다.",
+        });
       }
 
       todos[type] = selectTodoByTypeRows;
@@ -52,25 +51,25 @@ exports.readTodo = async function(req, res) {
       result: todos,
       isSuccess: true,
       code: 200,
-      message: "성공"
+      message: "성공",
     });
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`query error`, err);
   }
-}
+};
 
-exports.createTodo = async function(req, res) {
+exports.createTodo = async function (req, res) {
   try {
     console.log(`HTTP POST /todo`);
+    const { userIdx } = req.verifiedToken;
+    const { contents, type } = req.body;
 
-    const {userIdx, contents, type} = req.body;
     console.log("[", userIdx, "],[", contents, "],[", type, "]");
     if (!userIdx || !contents || !type) {
       return res.send({
         isSuccess: false,
         code: 400,
-        message: "입력값이 누락되었습니다."
+        message: "입력값이 누락되었습니다.",
       });
     }
 
@@ -79,7 +78,7 @@ exports.createTodo = async function(req, res) {
       return res.send({
         isSuccess: false,
         code: 400,
-        message: "컨텐츠의 글자가 20이 넘었습니다."
+        message: "컨텐츠의 글자가 20이 넘었습니다.",
       });
     }
 
@@ -88,7 +87,7 @@ exports.createTodo = async function(req, res) {
       return res.send({
         isSuccess: false,
         code: 400,
-        message: "유효한 타입이 아닙니다."
+        message: "유효한 타입이 아닙니다.",
       });
     }
 
@@ -98,30 +97,32 @@ exports.createTodo = async function(req, res) {
       return res.send({
         isSuccess: false,
         code: 403,
-        message: "요청에 실패했습니다."
+        message: "요청에 실패했습니다.",
       });
     }
     // 성공하면,
     return res.send({
       isSuccess: true,
       code: 200,
-      message: "성공"
-    })
+      message: "성공",
+    });
   } catch (err) {
-    console.log(`createTodo:`, err)
+    console.log(`createTodo:`, err);
   }
-}
+};
 
-exports.updateTodo = async function(req, res) {
+exports.updateTodo = async function (req, res) {
   try {
     console.log(`HTTP PATCH /todo`);
 
-    const {todoIdx, userIdx, contents, type} = req.body;
+    // const { todoIdx, userIdx, contents, type } = req.body;
+    const { userIdx } = req.verifiedToken;
+    const { todoIdx, contents, type } = req.body;
     if (!todoIdx || !userIdx) {
       return res.send({
         isSuccess: false,
         code: 400,
-        message: "입력값이 누락되었습니다."
+        message: "입력값이 누락되었습니다.",
       });
     }
 
@@ -139,16 +140,16 @@ exports.updateTodo = async function(req, res) {
       return res.send({
         isSuccess: false,
         code: 403,
-        message: "요청에 실패했습니다."
+        message: "요청에 실패했습니다.",
       });
     }
     // 성공하면,
     return res.send({
       isSuccess: true,
       code: 200,
-      message: "성공"
-    })
+      message: "성공",
+    });
   } catch (err) {
-    console.log(`createTodo:`, err)
+    console.log(`createTodo:`, err);
   }
-}
+};
