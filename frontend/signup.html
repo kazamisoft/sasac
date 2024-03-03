@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer</title>
+  <!-- 파비콘 -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="">
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+      />
+      <!--  -->
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+  <!-- Decorative Icon with Accessible Markup -->
+  <!-- <i class="fas fa-wrench"></i> -->
+  <!-- 위에서 아래로, 하나의 큰 컨테이너에 있겠다. 세로방향을 보면 된다. -->
+  <header>
+    <div class="inner">
+      <div class="header-container">
+        <div class="title">
+          <a href="#">성공일정</a>
+        </div>
+        <!-- title -->
+
+        <div class="sign-container">
+          <div class="unsigned hidden">
+            <div class="sign-in"><a href="#">로그인</a></div>
+            <div class="sign-up"><a href="#">회원가입</a></div>
+          </div>
+          <!-- unsigned -->
+
+          <div class="signed">
+            <div class="dropdown">
+              <div class="dropdown-button">
+                안녕하세요. <span class="nickname">홍길동님</span>
+                <i class="fas fa-arrow-alt-circle-down"></i>
+              </div>
+              <!-- dropdown button -->
+              <div class="dropdown-contents">
+                <div class="sign-out">로그아웃</div>
+              </div>
+              <!-- dropdown contents -->
+            </div>
+          </div>
+        </div>
+        <!-- sign-container -->
+      </div>
+      <!-- header container -->
+    </div>
+    <!-- inner -->
+  </header>
+
+  <!--  MAIN -->
+  <main>
+  <div class="inner">
+    <div class="signup-container">
+      <h1>안녕하세요 <span class="blue">성공일정</span>입니다.</h1>
+      <div class="signup-form">
+        <input type="text" name="" id="email" placeholder="이메일" />
+        <div class="email-message message">이메일 형식으로 입력해 주세요</div>
+        <input type="password" name="" id="password" placeholder="비밀번호">
+        <div class="password-message message">영문, 숫자, 특수문자(!@$%^&*)조합 8자이상 입력</div>
+        <input type="password" placeholder="비밀번호 확인" id="password-confirm">
+        <div class="password-confirm-message message">비밀번호가 일치하지 않습니다</div>
+        <input type="text" name="" id="nickname" placeholder="닉네임">
+        <div class="nickname-message message">한글 또는 영어 2-10로 설정해주세요</div>
+        <input type="button" id="signup" value="회원가입">
+        
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div class="footer-container">
+        <div class="author">개발자: 곽자섭</div>
+        <div class="author-email">이메일: jskwak@gmail.com</div>
+      </div>
+      <!-- footer container -->
+    </div>
+  </footer>
+  
+</body>
+</html>

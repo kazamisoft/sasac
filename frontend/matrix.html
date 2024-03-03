@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일정관리</title>
+  <!-- 파비콘 -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="">
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+      />
+      <!--  -->
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/jumbotron.css">
+  <link rel="stylesheet" href="css/matrix.css">
+</head>
+<body>
+  <!-- Decorative Icon with Accessible Markup -->
+  <!-- <i class="fas fa-wrench"></i> -->
+  <!-- 위에서 아래로, 하나의 큰 컨테이너에 있겠다. 세로방향을 보면 된다. -->
+  <header>
+    <div class="inner">
+      <div class="header-container">
+        <div class="title">
+          <a href="#">성공일정</a>
+        </div>
+        <!-- title -->
+
+        <div class="sign-container">
+          <div class="unsigned hidden">
+            <div class="sign-in"><a href="#">로그인</a></div>
+            <div class="sign-up"><a href="#">회원가입</a></div>
+          </div>
+          <!-- unsigned -->
+
+          <div class="signed">
+            <div class="dropdown">
+              <div class="dropdown-button">
+                안녕하세요. <span class="nickname">홍길동님</span>
+                <i class="fas fa-arrow-alt-circle-down"></i>
+              </div>
+              <!-- dropdown button -->
+              <div class="dropdown-contents">
+                <div class="sign-out">로그아웃</div>
+              </div>
+              <!-- dropdown contents -->
+            </div>
+          </div>
+        </div>
+        <!-- sign-container -->
+      </div>
+      <!-- header container -->
+    </div>
+    <!-- inner -->
+  </header>
+
+  <!--  MAIN -->
+  <main>
+    <!-- UPPER -->
+    <div class="inner">
+      <div class="jumbotron-container">
+        <div class="jumbotron-item-main">
+          <div class="jumbotron-item-main-message">
+            <p>내 시간을 제대로 쓰고 싶다면,</p>
+            <h1>아이젠하워 매트릭스</h1>
+          </div>
+
+          <div class="jumbotron-item-main-image">
+          </div>
+        </div>
+        <!-- main -->
+
+        <div class="jumbotron-item-sub">
+          <p>긴급성과 중요도를 기준으로 시간관리를 하고,</p>
+          <p>일의 우선순위를 배분하는 방법입니다.</p>
+        </div>
+        <!-- sub -->
+      </div>
+    <!-- jumbotron container -->
+
+    <!-- MATRIX -->
+    <div class="matrix-container">
+
+      <div class="matrix-item" id="decide"> 
+        <!-- contents -->
+        <div class="matrix-item-header">
+          <div class="matrix-title"><i class="fas fa-clipboard-list"></i>계획을 세워서 해야할 일</div>
+          <input type="text" name="" id="" class="matrix-input" placeholder="입력후 엔터를 눌러주세요">
+        </div>
+        <!-- matrix-item-header -->
+        <ul class="matrix-item-list">
+          <li class="list-item">
+            <div class="done-text-container">
+              <input type="checkbox" name="" id="" class="todo-done">
+              <p class="todo-text">산책하기</p>
+            </div>
+            <!-- list item -->
+            <div class="update-delete-container">
+              <i class="todo-update fas fa-pencil-ruler"></i>
+              <i class="todo-delete fas fa-trash"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- end of matrix-item-list -->
+      </div>
+      <!-- decide -->
+
+      <div class="matrix-item" id="do"> 
+        <!-- contents -->
+        <div class="matrix-item-header">
+          <div class="matrix-title"><i class="fas fa-clipboard-list"></i>계획을 세워서 해야할 일</div>
+          <input type="text" name="" id="" class="matrix-input" placeholder="입력후 엔터를 눌러주세요">
+        </div>
+        <!-- matrix-item-header -->
+        <ul class="matrix-item-list">
+          <li class="list-item">
+            <div class="done-text-container">
+              <input type="checkbox" name="" id="" class="todo-done">
+              <p class="todo-text">산책하기</p>
+            </div>
+            <!-- list item -->
+            <div class="update-delete-container">
+              <i class="todo-update fas fa-pencil-ruler"></i>
+              <i class="todo-delete fas fa-trash"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- end of matrix-item-list -->
+      </div>
+      <!-- do -->
+      <div class="matrix-item" id="delegate"> 
+        <!-- contents -->
+        <div class="matrix-item-header">
+          <div class="matrix-title"><i class="fas fa-clipboard-list"></i>계획을 세워서 해야할 일</div>
+          <input type="text" name="" id="" class="matrix-input" placeholder="입력후 엔터를 눌러주세요">
+        </div>
+        <!-- matrix-item-header -->
+        <ul class="matrix-item-list">
+          <li class="list-item">
+            <div class="done-text-container">
+              <input type="checkbox" name="" id="" class="todo-done">
+              <p class="todo-text">산책하기</p>
+            </div>
+            <!-- list item -->
+            <div class="update-delete-container">
+              <i class="todo-update fas fa-pencil-ruler"></i>
+              <i class="todo-delete fas fa-trash"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- end of matrix-item-list -->
+      </div>
+      <!-- delegate -->
+
+      <div class="matrix-item" id="delete"> 
+        <!-- contents -->
+        <div class="matrix-item-header">
+          <div class="matrix-title"><i class="fas fa-clipboard-list"></i>계획을 세워서 해야할 일</div>
+          <input type="text" name="" id="" class="matrix-input" placeholder="입력후 엔터를 눌러주세요">
+        </div>
+        <!-- matrix-item-header -->
+        <ul class="matrix-item-list">
+          <li class="list-item">
+            <div class="done-text-container list-item-text">
+              <input type="checkbox" name="" id="" class="todo-done">
+              <p class="todo-text">산책하기1234242423423424242424242424242</p>
+            </div>
+            <!-- list item -->
+            <div class="update-delete-container">
+              <i class="todo-update fas fa-pencil-ruler"></i>
+              <i class="todo-delete fas fa-trash"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- end of matrix-item-list -->
+      </div>
+      <!-- delete -->
+
+      <span class="importance">중요도</span>
+      <span class="urgency">긴급성</span>
+    </div>
+    <!-- end of MATRIX -->
+    </div>
+    <!-- Innter -->
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div class="footer-container">
+        <div class="author">개발자: 곽자섭</div>
+        <div class="author-email">이메일: jskwak@gmail.com</div>
+      </div>
+      <!-- footer container -->
+    </div>
+  </footer>
+  
+</body>
+</html>
