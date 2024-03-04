@@ -12,7 +12,8 @@ exports.signup = async (req, res) => {
       console.log(`${email}, ${password}, ${nickname}`);
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 401,
+        message: "err "
       });
     }
 
@@ -25,7 +26,7 @@ exports.signup = async (req, res) => {
       console.log(`password is not valid. ${email}`);
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 402,
       });
     }
 
@@ -33,14 +34,14 @@ exports.signup = async (req, res) => {
     if (!regPasswd.test(password)) {
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 403,
       });
     }
 
     if (nickname.length < 2 || nickname.length > 10) {
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 404,
       });
     }
 
@@ -49,7 +50,7 @@ exports.signup = async (req, res) => {
     if (isDuplicatedEmail.length > 0) {
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 405,
         message: "duplciated email",
       });
     }
@@ -59,7 +60,7 @@ exports.signup = async (req, res) => {
     if (!insertUserRow) {
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 406,
       });
     }
     res.send({
@@ -81,7 +82,7 @@ exports.signin = async (req, res) => {
       console.log(`${email}, ${password}`);
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 401,
       });
     }
 
@@ -91,13 +92,13 @@ exports.signin = async (req, res) => {
     if (!isValidUser) {
       return res.send({
         isSuccess: false,
-        code: 400,
+        code: 402,
       });
     }
     if (isValidUser.length < 1) {
       return res.send({
         isSuccess: false,
-        code: 401,
+        code: 403,
       });
     }
 

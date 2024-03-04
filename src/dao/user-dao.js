@@ -5,7 +5,7 @@ exports.insertUser = async function (email, password, nickname) {
     const connection = await pool.getConnection(async (conn) => conn);
 
     try {
-      const insertTodoQuery = `INSERT INTO tododb.Users (userIdx, email, password, nickname) VALUES('2', ?, ?, ?);`;
+      const insertTodoQuery = `INSERT INTO tododb.Users (email, password, nickname) VALUES(?, ?, ?);`;
       const insertTodoParams = [email, password, nickname];
       const [row] = await connection.query(insertTodoQuery, insertTodoParams);
       console.log(`insert result=`, [row]);

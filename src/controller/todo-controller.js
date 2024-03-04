@@ -134,7 +134,7 @@ exports.updateTodo = async function (req, res) {
       type = null;
     }
 
-    const result = todoDao.insertTodo(userIdx, contents, type);
+    const result = todoDao.updateTodo(userIdx, todoIdx, contents, type);
     if (result === false) {
       // res.send("NOTOK");
       return res.send({

@@ -96,3 +96,30 @@ exports.insertTodo = async function (userIdx, contents, type) {
     return false;
   }
 };
+
+// todo 수정
+exports.updateTodo = async function (userIdx, todoIdx, contents, type) {
+  try {
+    const connection = await pool.getConnection(async (conn) => conn);
+
+    try {
+      const updateTodoQuery = 
+        `UPDATE tododb.Todos 
+            SET contents = ifnull(?, contents), type=ifnull(?, type) 
+          WHERE userIdx=? and todoIdx=?;`;
+      const updateTodoParams = [contents, type, userIdx, todoIdx];
+      // const result = await connection.query(updateTodoQuery);
+      const [row] = await connection.query(updateTodoQuery, updateTodoParams);
+      console.log(`update result=`, [row]);
+      connection.release();
+      return row;
+    } catch (err) {
+      console.log(`createTodo:`, err);
+      connection.release();
+      return false;
+    }
+  } catch (err) {
+    console.log(`connection error=`, err);
+    return false;
+  }
+};
