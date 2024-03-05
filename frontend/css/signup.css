@@ -1,0 +1,81 @@
+.signup-container {
+  /* for dev */
+  background-color: chartreuse;
+  border: 1px dashed green;
+}
+
+main {
+  position: relative;
+}
+
+.signup-container {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.signup-container h1 {
+  font-size: 2.5rem;
+}
+
+.blue {
+  color: var(--main-blue);
+}
+
+.signup-container blue {
+}
+
+.signup-form {
+  width: 80%;
+  max-width: 30rem;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* for dev */
+  border: 1px dashed black;
+
+}
+
+.signup-form input {
+  width: 100%;
+  font-size: 1.3rem;
+  line-height: 2;
+  /* margin-bottom: 1rem; */
+  padding-left: 1rem;
+  border: 3px solid darkgray;
+  /* for dev */
+  /* background-color: red; */
+}
+
+.message {
+  /* display: none; */
+  margin-bottom: 1rem;
+  /* 원래 차지하고 있던 자리를 그대로 유지한다 */
+  visibility: hidden;
+  font-size: 1.2rem;
+}
+
+#signup {
+  padding-left: 0;
+  background-color: var(--main-blue);
+  border: white;
+  cursor: pointer;
+  color: white;
+}
+
+#signup:hover {
+  color: black;
+}
+
+@media only all and (max-width: 400px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+
+

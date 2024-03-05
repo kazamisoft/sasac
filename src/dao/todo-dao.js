@@ -56,9 +56,10 @@ exports.getTodoByType = async function (userIdx, type) {
     try {
       console.log("MySQL connected.");
 
-      const selectTodoQuery = `SELECT todoIdx, contents, type from tododb.Todos WHERE userIdx = ${userIdx} and type = "${type}";`;
+      const selectTodoQuery = `SELECT todoIdx, contents, type, status from tododb.Todos WHERE userIdx = ${userIdx} and type = "${type}";`;
       const [rows] = await connection.query(selectTodoQuery);
       connection.release();
+      console.log(rows);
       return [rows];
     } catch (err) {
       console.log(`query error=${err}`);

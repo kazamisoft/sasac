@@ -1,0 +1,150 @@
+ul, ol {
+  list-style: none;
+}
+
+.matrix-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-left: 3px solid darkgray;
+  border-bottom: 3px solid darkgray;
+  margin: 1rem 4rem 4rem;
+
+  /* for dev */
+  background-color: #e5f3fe;
+  /* height: 20px; */
+}
+
+.matrix-item {
+  width: 45%;
+  height: 20rem;
+  border: 0.5px solid darkgray;
+  border-radius: 5px 5px 0 0;
+  margin: 2rem 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* item header */
+.matrix-item-header {
+  text-align: center;
+  background-color: lightgray;
+  padding: 1rem 0;
+  /* z-index: 1; */
+  /* border: 0.5px dashed black; */
+}
+
+.matrix-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.matrix-input {
+  width: 90%;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  padding-left: 0.5rem;
+  line-height: 1.8;
+}
+
+/* 아이템 리스트 */
+.matrix-item-list {
+  flex: 1;
+  /* 헤더를 제외한 모든 높이 차지하기 */
+
+  overflow-y: scroll;
+}
+
+.list-item {
+  width: 90%;
+  margin: 0.5rem auto;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*
+.list-item-text {
+  display: text;
+  justify-content: space-evenly;
+  align-items: center;
+}
+*/
+
+.done-text-container {
+  flex: 1;
+
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.todo-done {
+  margin-left: .1rem;
+  cursor: pointer;
+}
+
+.todo-done:checked + .todo-text {
+  text-decoration: line-through;
+}
+
+.todo-text {
+  /* todo-done을 제외한 모든 너비를 차지 */
+  flex: 1;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.update-delete-container {
+  font-size: 1.6rem;
+}
+
+.todo-update {
+  margin-right: 0.5rem; 
+  cursor: pointer;
+}
+
+.todo-delete {
+  cursor: pointer;
+}
+
+#decide {
+  order: 1;
+}
+#do {
+  order: 2;
+}
+#delegate {
+  order: 4;
+}
+#delete {
+  order: 3;
+}
+
+.importance {
+  background-color: darkolivegreen;
+  position: absolute;
+  font-size: 1.5rem;
+  top: 70%;
+  left: 1.5%;
+  writing-mode: vertical-lr;
+}
+
+.urgency {
+  position: absolute;
+  font-size: 1.5rem;
+  bottom: -40%;
+}
+
+@media only all and (max-width: 768px) {
+  .matrix-container {
+    display: block;
+  } 
+}

@@ -1,0 +1,105 @@
+:root {
+  --light-gray: #f4f4f4;
+  --main-blue: #4aa8d8;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+}
+
+header {
+  background-color: var(--light-gray);
+}
+
+.inner {
+  margin: 0 auto;
+  /* 나중에 지울것 */
+  /* background-color: aqua; */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  /* 세로방향 0, 가로방향 1rem */
+  margin: 0 1rem;
+}
+
+.title a {
+  font-size: 2rem;
+  color: var(--main-blue);
+  font-weight: 900;  /* 글자 두껍께 */ 
+}
+
+.sign-container {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;;
+  /* width: 150px; */
+  /* background-color: lightcoral; */
+
+}
+
+.unsigned {
+  display: flex;
+}
+
+.sign-container a {
+  font-size: 1.6rem;
+}
+
+.sign-in {
+  margin-right: 1rem;
+}
+
+/* 아무리 늘어도 1200px */
+@media only all and (min-width: 1200px) {
+  .inner {
+    max-width: 1200px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  font: 1.2rem;
+  cursor: pointer;
+}
+
+/* 일단 안보이게하고 */
+.dropdown-contents {
+  display:none;
+  position: absolute;
+  width: 100%;
+}
+
+.dropdown-contents button {
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2;
+  background-color: darkgray;
+  border: 1px solid darkgray;
+}
+
+/* dropdown 위에 올라갔을 때 컨텐츠를 보이게 한다. */
+.dropdown:hover .dropdown-contents {
+  display: block;
+  /* align-content: end; */
+  /* background-color: lightgray; */
+}

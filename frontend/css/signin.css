@@ -1,0 +1,87 @@
+/* signin.css */
+
+.blue {
+  color: var(--main-blue);
+}
+
+/*
+main .inner {
+  height: 100%;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
+main {
+  position: relative;
+  border: 1px dashed red;
+}
+
+.signin-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 가운데 높고 싶을때 */
+  /* 자신의 너비로 x축과 y축으로 -50% 이동 */
+  transform: translate(-50%, -50%);
+  /* for dev */
+  text-align: center;
+  border: 1px dashed black;
+}
+
+.signin-container h1 {
+  font-size: 2.5rem;
+}
+
+.signin-form {
+  width: 80%;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* for dev */
+  background-color: beige;
+  border: 1px dashed magenta;
+}
+
+.signin-form input {
+  width: 100%;
+  font-size: 1.3rem;
+  line-height: 2;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border: 3px solid darkgray;
+}
+
+#signin {
+  padding-left: 0;
+  background-color: var(--main-blue);
+  border: white;
+  cursor: pointer;
+  color: white;
+}
+
+#signin:hover {
+  color: black;
+}
+
+
+#signup {
+  color: black;
+  font-size: 1.4rem;
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+
+@media only all and (max-width: 400px) {
+  html {
+    font-size: 9px;
+  }
+} 

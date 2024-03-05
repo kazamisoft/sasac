@@ -55,6 +55,29 @@ exports.selectUser = async function (email, password) {
     try {
       console.log("MySQL connected.");
       const selectTodoQuery = `SELECT * FROM tododb.Users WHERE email = "${email}" and password = "${password}";`;
+      const rows = await connection.query(selectTodoQuery);
+      console.log("Retun rows=", rows);
+      connection.release();
+      return rows[0];
+    } catch (err) {
+      console.log(`query error=${err}`);
+      connection.release();
+    } finally {
+      // 반드시 들어가야 한다.
+    }
+  } catch (err) {
+    console.log(`connection err=${err}`);
+    return false;
+  }
+};
+
+// user
+exports.selectNicknameByUserIdx = async function (userIdx) {
+  try {
+    const connection = await pool.getConnection(async (conn) => conn);
+
+    try {
+      const selectTodoQuery = `SELECT nickname FROM tododb.Users WHERE userIdx = ${userIdx};`;
       const [rows] = await connection.query(selectTodoQuery);
       console.log("Retun rows=", rows);
       connection.release();

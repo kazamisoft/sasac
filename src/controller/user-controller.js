@@ -125,3 +125,25 @@ exports.signin = async (req, res) => {
     });
   }
 };
+
+exports.getNicknameByToken = async (req, res) => {
+  const {userIdx} = req.verifiedToken;
+
+  try {
+  const userInfo = await userDao.selectNicknameByUserIdx(userIdx);
+  console.log(`nickname=`, userInfo[0].nickname);
+
+  return res.send({
+    isSuccess: true,
+    result: { nickname: userInfo[0].nickname},
+    code: 200,
+    });
+  }
+  catch (err) { 
+    return res.send({
+      isSuccess: false,
+      code: 401,
+      message: `${err}`,
+    });
+  }
+};

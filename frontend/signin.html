@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Footer</title>
+  <title>로그인</title>
   <!-- 파비콘 -->
   <link rel="icon" href="images/favicon.png">
   <link rel="apple-touch-icon" href="">
@@ -17,6 +17,11 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/signin.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" 
+          integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer">
+  </script>
 </head>
 <body>
     <!-- Decorative Icon with Accessible Markup -->
@@ -37,7 +42,7 @@
             </div>
             <!-- unsigned -->
 
-            <div class="signed">
+            <div class="signed hidden">
               <div class="dropdown">
                 <div class="dropdown-button">
                   안녕하세요. <span class="nickname">홍길동님</span>
@@ -65,7 +70,9 @@
         <h1>안녕하세요. <span class="blue">성공일정</span>입니다</h1>
         <div class="signin-form">
           <input type="text" name="" id="email" placeholder="이메일" />
+          <div class="email-message message">이메일 형식으로 입력해 주세요</div>
           <input type="password" name="" id="password" placeholder="비밀번호" />
+          <div class="password-message message">영문, 숫자, 특수문자(!@$%^&*)조합 8자이상 입력</div>
           <input type="button" value="로그인" id="signin">
           <div class="signup-container">
             <a href="#" id="signup">회원가입</a>
@@ -87,6 +94,8 @@
       <!-- footer container -->
     </div>
   </footer>
+  <script src="js/common.js"></script>
+  <script src="js/signin.js"></script>
   
 </body>
 </html>

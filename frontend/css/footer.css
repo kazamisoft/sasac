@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  /* 나머지 부분은 여기로 다 채워진다 */
+  flex: 1;
+  /* height: 200px; */
+}
+
+footer {
+  background-color: lightgray;
+  height: 3rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;;
+  align-items: center;
+  font-size: 1.4rem;
+  /* 라이높이가 자동정렬되어서  */
+  line-height: 3rem;
+  gap: 1rem;
+}
+
+.author {
+
+}
