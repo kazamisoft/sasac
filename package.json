@@ -6,6 +6,7 @@
   "scripts": {
     "start": "pm2 start src/index.js",
     "monitor": "pm2 monitor",
+    "stop": "pm2 kill",
     "dev": "nodemon ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
