@@ -124,3 +124,27 @@ exports.updateTodo = async function (userIdx, todoIdx, contents, type) {
     return false;
   }
 };
+
+// todo 삭제
+exports.deleteTodo = async function (todoIdx) {
+  try {
+    const connection = await pool.getConnection(async (conn) => conn);
+
+    try {
+      const deleteTodoQuery = 
+        `DELETE FROM tododb.Todos WHERE todoIdx=${todoIdx}`;
+      const deleteTodoParams = [todoIdx];
+      const [row] = await connection.query(deleteTodoQuery); //, deleteTodoParams);
+      console.log(`delete result=`, [row]);
+      connection.release();
+      return row;
+    } catch (err) {
+      console.log(`deleteTodo:`, err);
+      connection.release();
+      return false;
+    }
+  } catch (err) {
+    console.log(`connection error=`, err);
+    return false;
+  }
+};

@@ -8,6 +8,7 @@ exports.todoRouter = function (app) {
   // token을 사용하여 조회
   app.get("/todos", jwtMiddleware, todoController.readTodo);
   app.patch("/todo", jwtMiddleware, todoController.updateTodo);
+  app.delete("/todo/:todoIdx", jwtMiddleware, todoController.deleteTodo);
   /*
   app.get(
     "/dummy",
